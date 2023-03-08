@@ -40,9 +40,20 @@ class MassSpringDamper:
             
         return xHist, timeHist
     
-    def plot_hist(self, x, totalTime):
+    def plot_hist(self, x, totalTime, u):
         
-        plt.plot(totalTime, x[:, 0])
+        fig, ax = plt.subplots(2)
+        
+        ax[0].plot(totalTime, x[:, 0], totalTime, x[:, 1])
+        ax[0].set_ylabel('States')
+        ax[0].legend(['x (m)', 'xdot (m/s)'])
+        ax[0].grid()
+        
+        ax[1].plot(totalTime, u)
+        ax[1].set_xlabel('Time (s)')
+        ax[1].set_ylabel('Input (N)')
+        ax[1].grid()
+        
         plt.show()
             
 if __name__ == "__main__":
