@@ -55,14 +55,5 @@ class MassSpringDamper:
         ax[1].grid()
         
         plt.show()
-            
-if __name__ == "__main__":
-    
-    system = MassSpringDamper(50.0, 10.0, 2.0, .01)
-    
-    xInit = np.array([[1., 0.]]).T
-    xHist, timeHist = system.simulate(100, xInit)
-        
-    system.plot_hist(xHist, timeHist)
     
     
