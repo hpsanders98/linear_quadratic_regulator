@@ -67,11 +67,10 @@ if __name__ == "__main__":
     system = InvertedPendulum(.2, .1, 1.0, .01)
     Q = np.diag([0.05, 1.0])
     R = .1 * np.ones((1, 1))    
-    controller = LQRController(system, Q, R, False)    
-    xInit = np.array([[0.,2.5]]).T
+    controller = LQRController(system, Q, R, 0)    
+    xInit = np.array([[0.,.5]]).T
     xRef = np.array([[0.0, 0.0]]).T
     
     xHist, timeHist, uHist = controller.simulate(5, xInit, xRef)    
     controller.plot_hist(xHist, timeHist, uHist)
-    
     

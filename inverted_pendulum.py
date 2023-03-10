@@ -69,7 +69,7 @@ class InvertedPendulum:
         
         ax[0].plot(totalTime, x[:, 1], totalTime, x[:, 0])
         ax[0].set_ylabel('States')
-        ax[0].legend(['x (m)', 'xdot (m/s)'])
+        ax[0].legend(['Theta (rad)', 'ThetaDot (rad/s)'])
         ax[0].grid()
         
         ax[1].plot(totalTime, u)
