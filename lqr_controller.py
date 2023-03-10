@@ -54,23 +54,23 @@ class LQRController:
         
 if __name__ == "__main__":
     
-    # system = MassSpringDamper(5.0, 1.0, 2.0, .01)
-    # Q = np.diag([20.0, 1.0])
-    # R = .001 * np.ones((1, 1))    
-    # controller = LQRController(system, Q, R)    
-    # xInit = np.array([[0., 0.]]).T
-    # xRef = np.array([[10.0, 0.0]]).T
-    
-    # xHist, timeHist, uHist = controller.simulate(20, xInit, xRef)    
-    # controller.plot_hist(xHist, timeHist, uHist)
-    
-    system = InvertedPendulum(.2, .1, 1.0, .01)
-    Q = np.diag([0.05, 1.0])
-    R = .1 * np.ones((1, 1))    
+    system = MassSpringDamper(5.0, 1.0, 2.0, .01)
+    Q = np.diag([20.0, 1.0])
+    R = .001 * np.ones((1, 1))    
     controller = LQRController(system, Q, R, 0)    
-    xInit = np.array([[0.,.5]]).T
-    xRef = np.array([[0.0, 0.0]]).T
+    xInit = np.array([[0., 0.]]).T
+    xRef = np.array([[-1, 0.0]]).T
     
-    xHist, timeHist, uHist = controller.simulate(5, xInit, xRef)    
+    xHist, timeHist, uHist = controller.simulate(20, xInit, xRef)    
     controller.plot_hist(xHist, timeHist, uHist)
+    
+    # system = InvertedPendulum(.2, .1, 1.0, .01)
+    # Q = np.diag([0.05, 1.0])
+    # R = .1 * np.ones((1, 1))    
+    # controller = LQRController(system, Q, R, 0)    
+    # xInit = np.array([[0.,.5]]).T
+    # xRef = np.array([[0.0, 0.0]]).T
+    
+    # xHist, timeHist, uHist = controller.simulate(5, xInit, xRef)    
+    # controller.plot_hist(xHist, timeHist, uHist)
     
